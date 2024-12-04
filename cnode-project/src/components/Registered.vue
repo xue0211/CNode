@@ -3,25 +3,39 @@
         <div class="formWrapper">
             <h2>用户注册</h2>
             <form action="">
-                <label for=""></label>
-                <input type="">
-                <label for=""></label>
-                <input type="">
+                <label for="username">
+                    用户名 ：<span v-if="usernameIsRight"> | 用户名已存在，请直接<router-link
+                            :to='{ name: "Login" }'>登录</router-link></span>
+                </label>
+                <input type="email" name="username" v-model="username" placeholder="username">
+                <label for="password">
+                    密码 ：
+                </label>
+                <input type="password" name="password" v-model="password" placeholder="password">
             </form>
             <button>提交</button>
-            <span></span>
+            <span v-if="isWorks">注册成功！即将跳转到登录页面</span>
+            <span>| 已有账号？可以直接<router-link :to='{ name: "Login" }'>登录</router-link></span>
         </div>
     </div>
 </template>
 
 <script>
-export default{
+export default {
     name: 'Registered',
+    data() {
+        return {
+            username: '',
+            password: '',
+            usernameIsRight: false,
+            isWorks: false
+        }
+    }
 }
 </script>
 
 <style scoped>
-.registered{
+.registered {
     height: 86vh;
     width: 100%;
     display: flex;
@@ -29,40 +43,46 @@ export default{
     align-items: center;
 }
 
-.formWrapper{
+.formWrapper {
     width: 500px;
     height: 300px;
-    border:1px solid #d1d5da;
+    border: 1px solid #d1d5da;
     background-color: #fff;
     border-radius: 5px;
     text-align: center;
 }
-.formWrapper:hover{
-    box-shadow: 4px 4px 22px 0px rgba(0,0,0,0.25);
+
+.formWrapper:hover {
+    box-shadow: 4px 4px 22px 0px rgba(0, 0, 0, 0.25);
 }
-.formWrapper h2{
+
+.formWrapper h2 {
     padding-top: 18px;
     color: #333
 }
-form{
+
+form {
     text-align: start;
     padding-left: 140px;
     padding-bottom: 10px;
     margin-top: 18px
 }
-input{
+
+input {
     display: block;
     margin-left: 20px;
-        height: 18px;
+    height: 18px;
     border-radius: 4px
 }
-label{
+
+label {
     display: block;
     margin-bottom: 10px;
     margin-top: 10px;
     font-size: 15px;
 }
-button{
+
+button {
     width: 100px;
     height: 30px;
     background-color: #444;
@@ -72,10 +92,12 @@ button{
     display: block;
     margin: 20px auto
 }
-button:hover{
+
+button:hover {
     background-color: #2F96B4;
 }
-span{
+
+span {
     padding-top: 6px;
     font-size: 14px;
     color: #586069
