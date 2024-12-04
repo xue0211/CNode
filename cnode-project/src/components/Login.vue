@@ -12,7 +12,7 @@
                 </label>
                 <input type="password" name="password"  v-model="password" placeholder="password">
             </form>
-            <button>提交</button>
+            <button @click="submitInfo">提交</button>
             <span>| 没有账号？先<router-link :to='{name:"registered"}'>注册</router-link>吧！</span>
         </div>
     </div>
