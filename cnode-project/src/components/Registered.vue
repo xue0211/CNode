@@ -13,7 +13,7 @@
                 </label>
                 <input type="password" name="password" v-model="password" placeholder="password">
             </form>
-            <button>提交</button>
+            <button @click="submitInfo">提交</button>
             <span v-if="isWorks">注册成功！即将跳转到登录页面</span>
             <span>| 已有账号？可以直接<router-link :to='{ name: "Login" }'>登录</router-link></span>
         </div>
@@ -29,6 +29,20 @@ export default {
             password: '',
             usernameIsRight: false,
             isWorks: false
+        }
+    },
+    methods: {
+        submitInfo() {
+            if (localStorage.getItem(this.username) === null) {
+                this.usernameIsRight = false
+                localStorage.setItem(this.username, this.password)
+                this.isWorks = true
+                setTimeout(() => {
+                    this.$router.push({ path: '/login' })
+                }, 2000)
+            } else {
+                this.usernameIsRight = true
+            }
         }
     }
 }
@@ -101,5 +115,13 @@ span {
     padding-top: 6px;
     font-size: 14px;
     color: #586069
+}
+span a {
+    font-size: 14px;
+    color: #586069;
+    text-decoration: none;
+}
+span a:hover{
+    color: #2F96B4
 }
 </style>

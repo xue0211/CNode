@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-   <Header></Header>
+    <Header></Header>
+    <div class="main">
+      <router-view name="main"></router-view>
+    </div>
   </div>
 </template>
 
@@ -8,7 +11,7 @@
 import Header from "./components/Header"
 export default {
   name: 'App',
-  components:{
+  components: {
     Header,
   }
 }
@@ -18,5 +21,12 @@ export default {
   margin: 0;
   padding: 0;
   transition: All 0.3s
+}
+body{
+  background-color: #E1E1E1;
+}
+.main{
+  width:80%;
+  margin: 0 auto;
 }
 </style>
