@@ -11,7 +11,10 @@
                     注册
                 </router-link>
             </li>
-            <li>登录</li>
+            <li v-if="isRegistered">
+                <router-link :to='{name:"Login"}'>登录</router-link>
+            </li>
+            <li v-if="userNameIsExit"><span>{{ this.username }}</span></li>
         </ul>
     </div>
 </template>

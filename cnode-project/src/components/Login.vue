@@ -28,6 +28,19 @@ export default{
             usernameIsRight: false,
             passwordIsRight:false
         }
+    },
+    methods:{
+        submitInfo(){
+            if(localStorage.getItem(this.username) === null){
+                this.usernameIsRight = true
+            }else if(localStorage.getItem(this.username) !== this.password){
+                this.usernameIsRight = true
+            }else if(localStorage.getItem(this.username) === this.password){
+                this.usernameIsRight = false
+                this.$router.push({name:'user',params:{name:this.username}})
+                window.location.reload()
+            }
+        }
     }
 }
 </script>
@@ -91,5 +104,13 @@ span{
     padding-top: 6px;
     font-size: 14px;
     color: #586069
+}
+span a {
+    font-size: 14px;
+    color: #586069;
+    text-decoration: none;
+}
+span a:hover{
+    color: #2F96B4
 }
 </style>
