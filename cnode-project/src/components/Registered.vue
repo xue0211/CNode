@@ -116,12 +116,24 @@ span {
     font-size: 14px;
     color: #586069
 }
+
 span a {
     font-size: 14px;
     color: #586069;
     text-decoration: none;
 }
-span a:hover{
+
+span a:hover {
     color: #2F96B4
+}
+
+@media (max-width: 979px) {
+    .formWrapper {
+        width: 94%;
+    }
+
+    form {
+        padding-left: 75px;
+    }
 }
 </style>
