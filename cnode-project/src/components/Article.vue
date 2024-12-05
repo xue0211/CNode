@@ -11,27 +11,27 @@
         </div>
         <div v-else>
             <div class="topic_header">
-                <div class="topic_title"></div>
+                <div class="topic_title">{{ post.title }}</div>
                 <ul>
-                    <li>· 发表于</li>
+                    <li>· 发表于{{ post.create_at | formatDate }}</li>
                     <li>· 作者：</li>
-                    <li>· 次浏览</li>
-                    <li>· 来自</li>
+                    <li>· {{ post.visit_count }} 次浏览</li>
+                    <li>· 来自 {{ post | tabFormatter }}</li>
                 </ul>
-                <div></div>
+                <div v-html="post.content" class="topic_content markdown-body"></div>
             </div>
             <div class="reply">
-                <div class="topbar"></div>
-                <div v-if="" class="noReplyStyle">本文暂无评论...</div>
-                <div v-for="" class="replySec">
+                <div class="topbar">回复</div>
+                <div v-if="post.replies.length === 0" class="noReplyStyle">本文暂无评论...</div>
+                <div v-for="(reply,index) in post.replies" class="replySec">
                     <div class="replyUp">
-                        <img src="" alt="">
-                        <span></span>
-                        <span>#楼</span>
-                        <span v-if="">👍</span>
+                        <img :src="reply.author.avatar_url"  class="replyUserImg">
+                        <span>{{ reply.author.loginname }}</span>
+                        <span>#{{index+1}}楼</span>
+                        <span v-if="reply.ups.lenght>0">👍{{ reply.ups.length}}</span>
                         <span v-else></span>
                     </div>
-                    <p class="replyContentStyle markdown-body"></p>
+                    <p v-html="reply.content" class="replyContentStyle markdown-body"></p>
                 </div>
             </div>
         </div>
@@ -45,6 +45,31 @@ export default {
         return {
             isLoading: false,
             post: {}
+        }
+    },
+    methods: {
+        getArticleData() {
+            this.$axios
+                .get(`https://cnodejs.org/api/v1/topic/${this.$route.params.id}`)
+                .then(res => {
+                    if (res.data.success === true) {
+                        this.isLoading = false;
+                        this.post = res.data.data
+                        console.log(this.post.replies.length)
+                    }
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        }
+    },
+    beforeMount() {
+        this.isLoading = true;
+        this.getArticleData();
+    },
+    watch: {
+        '$route'(to, from) {
+            this.getArticleData()
         }
     }
 }
