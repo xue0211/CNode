@@ -14,7 +14,7 @@
                 <div class="topic_title">{{ post.title }}</div>
                 <ul>
                     <li>· 发表于{{ post.create_at | formatDate }}</li>
-                    <li>· 作者：</li>
+                    <li>· 作者： {{ post.author.loginname }}</li>
                     <li>· {{ post.visit_count }} 次浏览</li>
                     <li>· 来自 {{ post | tabFormatter }}</li>
                 </ul>
@@ -23,12 +23,12 @@
             <div class="reply">
                 <div class="topbar">回复</div>
                 <div v-if="post.replies.length === 0" class="noReplyStyle">本文暂无评论...</div>
-                <div v-for="(reply,index) in post.replies" class="replySec">
+                <div v-for="(reply, index) in post.replies" class="replySec markdown-body">
                     <div class="replyUp">
-                        <img :src="reply.author.avatar_url"  class="replyUserImg">
+                        <img :src="reply.author.avatar_url" class="replyUserImg">
                         <span>{{ reply.author.loginname }}</span>
-                        <span>#{{index+1}}楼</span>
-                        <span v-if="reply.ups.lenght>0">👍{{ reply.ups.length}}</span>
+                        <span>#{{ index + 1 }}楼</span>
+                        <span v-if="reply.ups.lenght > 0">👍{{ reply.ups.length }}</span>
                         <span v-else></span>
                     </div>
                     <p v-html="reply.content" class="replyContentStyle markdown-body"></p>
@@ -76,6 +76,7 @@ export default {
 </script>
 
 <style scoped>
+
 .noReplyStyle {
     margin: 10px;
     padding-bottom: 10px;
@@ -91,7 +92,7 @@ export default {
     margin-top: 10px;
 }
 
-.article:not(:first-child) {
+.article{
     margin-right: 340px;
     margin-top: 15px;
 }
@@ -101,7 +102,7 @@ export default {
     background-color: #fff;
 }
 
-#reply {
+.reply {
     margin-top: 15px;
     margin-bottom: 15px;
 }
@@ -169,6 +170,12 @@ export default {
 
 .replyContentStyle {
     padding: 10px 35px 0 35px;
+}
+
+@media screen and (max-width: 979px) {
+    .article{
+        margin: 10px 10px 10px;
+    }
 }
 
 body {
@@ -274,6 +281,21 @@ body {
 
     100% {
         transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 979px) {
+    .loading {
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .loader {
+        position: absolute;
+        top: 30%;
+        left: 35%;
+        margin-left: 10%;
+        transform: translate3d(-50%, -50%, 0);
     }
 }
 </style>

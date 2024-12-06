@@ -301,4 +301,17 @@ a:hover {
         transform: scale(1);
     }
 }
+@media screen and (max-width: 979px){
+  .loading {
+    text-align: center;
+    padding-top: 100px;
+  }
+  .loader {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    margin-left: 10%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+}
 </style>
