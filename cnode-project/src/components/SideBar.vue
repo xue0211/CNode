@@ -1,21 +1,44 @@
 <template>
     <div class="autherinfo">
-        <div class="authorsummary">
+        <div class="loading" v-if="isLoading">
+            <div class="loader">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+        <div v-else class="authorsummary">
             <div class="toobar">作者</div>
-            <img src="" alt="">
-            <span class="loginname"></span>
-            <p class="scoreStyle">积分 </p>
+            <router-link :to="{name:'user_info',params:{name:userinfo.loginname}}">
+                <img :src="userinfo.avatar_url">
+            </router-link>
+            <span class="loginname">
+                <router-link :to="{name:'user_info',params:{name:userinfo.loginname}}">
+                    {{ userinfo.loginname}}
+                </router-link>
+            </span>
+            <p class="scoreStyle">积分 {{ userinfo.score }}</p>
         </div>
         <div class="recent_topics">
             <div class="topbar">作者最近主题</div>
             <ul>
-                <li></li>
+                <li v-for="item in topicLimitBy5">
+                    <router-link :to="{name:'post_content',params:{id:item.id,name:item.author.loginname}}">
+                        {{item.title | postListConversion(44)}}
+                    </router-link>
+                </li>
             </ul>
         </div>
         <div class="recent_replies">
             <div class="topbar">作者最近回复</div>
             <ul>
-                <li></li>
+                <li v-for="item in repliesLimitBy5">
+                   <router-link :to="{name:'post_content',params:{id:item.id,name:item.author.loginname}}">
+                    {{item.title | postListConversion(44)}}
+                   </router-link>
+                </li>
             </ul>
         </div>
     </div>
@@ -30,10 +53,37 @@ export default{
         }
     },
     computed:{
-
+        topicLimitBy5(){
+            // 这里不用 length 判断是因为刚开始渲染的时候 userinfo 是空的，是没有 length 的，所以会报错
+            if(this.userinfo.recent_topics){
+                return this.userinfo.recent_topics.slice(0,5)
+            }
+        },
+        repliesLimitBy5(){
+            if(this.userinfo.recent_replies){
+                return this.userinfo.recent_replies.slice(0,5)
+            }
+        }
     },
     methods:{
-
+        getUserData(){
+            this.$axios
+              .get(`https://cnodejs.org/api/v1/user/${this.$route.params.name}`)
+              .then(res => {
+                if(res.data.success === true){
+                    this.isLoading = false;
+                    this.userinfo = res.data.data;
+                    console.log(this.userinfo)
+                }
+              })
+              .catch(err => {
+                console.log(err);
+              })
+        }
+    },
+    beforeMount(){
+        this.isLoading = true;
+        this.getUserData()
     }
 }
 </script>

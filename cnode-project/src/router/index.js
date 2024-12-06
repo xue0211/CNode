@@ -5,6 +5,7 @@ import Login from '../components/Login'
 import PostList from '../components/PostList'
 import Article from '../components/Article'
 import UserInfo from '../components/UserInfo'
+import SideBar from '../components/SideBar'
 
 Vue.use(Router)
 
@@ -14,7 +15,14 @@ export default new Router({
       name: 'root',
       path: '/',
       components: {
-        main: PostList
+        main: PostList,
+      }
+    },
+    {
+      name: 'user',
+      path: '/user/:name',
+      components: {
+        main: PostList,
       }
     },
     {
@@ -22,6 +30,7 @@ export default new Router({
       path: '/topic/:id&author=:name',
       components: {
         main: Article,
+        sidebar:SideBar
       }
     },
     {
