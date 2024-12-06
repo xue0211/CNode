@@ -4,39 +4,47 @@ import Registered from '../components/Registered'
 import Login from '../components/Login'
 import PostList from '../components/PostList'
 import Article from '../components/Article'
+import UserInfo from '../components/UserInfo'
 
 Vue.use(Router)
 
 export default new Router({
-    routes:[
-      {
-        name: 'root',
-        path: '/',
-        components:{
-          main:PostList
-        }
-      },
-      {
-        name:'post_content',
-        path:'/topic/:id&author=:name',
-        components:{
-          main:Article,
-        }
-      },
+  routes: [
+    {
+      name: 'root',
+      path: '/',
+      components: {
+        main: PostList
+      }
+    },
+    {
+      name: 'post_content',
+      path: '/topic/:id&author=:name',
+      components: {
+        main: Article,
+      }
+    },
+    {
+      name: 'user_info',
+      path: '/userinfo/:name',
+      components: {
+        main: UserInfo
+      }
+    },
 
-      {
-        name:'Login',
-        path:'/login',
-        components:{
-          main:Login
-        }
-      },
-      {
-        name:'registered',
-        path:'/registered',
-        components:{
-          main:Registered
-        }
-      },
-    ]
+    {
+      name: 'Login',
+      path: '/login',
+      components: {
+        main: Login
+      }
+    },
+    {
+      name: 'registered',
+      path: '/registered',
+      components: {
+        main: Registered
+      }
+    },
+  ]
 })
