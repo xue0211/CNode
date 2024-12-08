@@ -40,13 +40,16 @@
                     </router-link>
                     <span class="last_reply">{{post.last_reply_at | formatDate}}</span>
                 </li>
-                <li></li>
+                <li>
+                    <pagination @handleList='renderList' :tab='tab'></pagination>
+                </li>
             </ul>
         </div>
     </div>
 </template>
 
 <script>
+import Pagination from './Pagination.vue';
 export default {
     name: 'PostList',
     data() {
@@ -95,6 +98,7 @@ export default {
         this.getData();
     },
     components: {
+        Pagination
 
     },
     watch: {
