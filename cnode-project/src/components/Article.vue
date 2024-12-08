@@ -25,10 +25,18 @@
                 <div v-if="post.replies.length === 0" class="noReplyStyle">本文暂无评论...</div>
                 <div v-for="(reply, index) in post.replies" class="replySec markdown-body">
                     <div class="replyUp">
-                        <img :src="reply.author.avatar_url" class="replyUserImg">
-                        <span>{{ reply.author.loginname }}</span>
-                        <span>#{{ index + 1 }}楼</span>
-                        <span v-if="reply.ups.lenght > 0">👍{{ reply.ups.length }}</span>
+                        <router-link :to="{ name: 'user_info', params: { name: reply.author.loginname } }">
+                            <img :src="reply.author.avatar_url" class="replyUserImg">
+                        </router-link>
+                        <router-link :to="{ name: 'user_info', params: { name: reply.author.loginname } }">
+                            <span>{{ reply.author.loginname }}</span>
+                        </router-link>
+                        <span>
+                            #{{ index + 1 }}楼
+                        </span>
+                        <span v-if="reply.ups.length > 0">
+                            👍{{ reply.ups.length }}
+                        </span>
                         <span v-else></span>
                     </div>
                     <p v-html="reply.content" class="replyContentStyle markdown-body"></p>
@@ -76,7 +84,6 @@ export default {
 </script>
 
 <style scoped>
-
 .noReplyStyle {
     margin: 10px;
     padding-bottom: 10px;
@@ -92,7 +99,7 @@ export default {
     margin-top: 10px;
 }
 
-.article{
+.article {
     margin-right: 340px;
     margin-top: 15px;
 }
@@ -116,7 +123,7 @@ export default {
 
 .topic_header a,
 #reply a,
-#reply span {
+.reply span {
     font-size: 13px;
     color: #666;
     text-decoration: none;
@@ -173,7 +180,7 @@ export default {
 }
 
 @media screen and (max-width: 979px) {
-    .article{
+    .article {
         margin: 10px 10px 10px;
     }
 }
@@ -297,88 +304,5 @@ body {
         margin-left: 10%;
         transform: translate3d(-50%, -50%, 0);
     }
-}
-.loader {
-  position: absolute;
-  top: 30%;
-  left: 25%;
-  margin-left: 10%;
-  transform: translate3d(-50%, -50%, 0);
-}
-.dot {
-  width: 24px;
-  height: 24px;
-  background: #3ac;
-  border-radius: 100%;
-  display: inline-block;
-  animation: slide 1s infinite;
-}
-.dot:nth-child(1) {
-  animation-delay: 0.1s;
-  background: #32aacc;
-}
-.dot:nth-child(2) {
-  animation-delay: 0.2s;
-  background: #64aacc;
-}
-.dot:nth-child(3) {
-  animation-delay: 0.3s;
-  background: #96aacc;
-}
-.dot:nth-child(4) {
-  animation-delay: 0.4s;
-  background: #c8aacc;
-}
-.dot:nth-child(5) {
-  animation-delay: 0.5s;
-  background: #faaacc;
-}
-@-moz-keyframes slide {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.3;
-    transform: scale(2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@-webkit-keyframes slide {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.3;
-    transform: scale(2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@-o-keyframes slide {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.3;
-    transform: scale(2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes slide {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.3;
-    transform: scale(2);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 </style>
