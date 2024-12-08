@@ -35,4 +35,13 @@ img{
   margin-top: 10px;
   max-width: 30px;
 }
+@media screen and (max-width: 979px){
+  .footer{
+    height: 100px;
+  }
+  img{
+    margin-top: 20px;
+    max-width: 20px;
+  }
+}
 </style>
