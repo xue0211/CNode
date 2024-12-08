@@ -17,7 +17,7 @@ export default new Router({
       path: '/',
       components: {
         main: PostList,
-        SlideBar:Slider
+        slidebar:Slider
       }
     },
     {
@@ -32,7 +32,7 @@ export default new Router({
       path: '/topic/:id&author=:name',
       components: {
         main: Article,
-        SlideBar:SlideBar
+        slidebar:SlideBar
       }
     },
     {
