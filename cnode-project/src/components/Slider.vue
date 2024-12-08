@@ -1,30 +1,31 @@
 <template>
-    <div class="authorinfo">
-         <div class="authorsummary">
-            <div class="topbar">作者</div>
-            <div class="imgWrapper">
-                 <img src="../assets/wechat.png" alt="">
-            </div>
-         </div>
-         <div class="recent_topics">
-            <div class="topbar">关于作者</div>
-            <ul>
-                <li><a href="https://github.com/xue0211/CNode" target="_blank">GitHub</a></li>
-                <li><a href="https://www.zhihu.com/people/xia-ye-ban-liang-5?utm_source=article-pc-editor" target="_blank">Blog</a></li>
-                <li><a href="mailto:zhengtai1123@qq.com"  target='_blank'>Email</a></li>
-            </ul>
-         </div>
+  <div class="authorinfo">
+    <div class="authorsummary">
+      <div class="topbar">作者</div>
+      <div class="imgWrapper">
+        <img src="../assets/wechat.png" alt="">
+      </div>
     </div>
+    <div class="recent_topics">
+      <div class="topbar">关于作者</div>
+      <ul>
+        <li><a href="https://github.com/xue0211/CNode" target="_blank">GitHub</a></li>
+        <li><a href="https://www.zhihu.com/people/xia-ye-ban-liang-5?utm_source=article-pc-editor"
+            target="_blank">Blog</a></li>
+        <li><a href="mailto:zhengtai1123@qq.com" target='_blank'>Email</a></li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <script>
-export default{
-    name: 'Sider',
-    data(){
-        return{
-            userinfo: {}
-        }
+export default {
+  name: 'Slider',
+  data() {
+    return {
+      userinfo: {}
     }
+  }
 }
 </script>
 
@@ -35,23 +36,27 @@ export default{
   background-color: #fff;
   margin-bottom: 10px;
 }
+
 .authorinfo {
   width: 328px;
   float: right;
 }
+
 li {
-    color: #fff;
+  color: #fff;
   background-color: #444;
   text-align: center;
-  margin-bottom:8px; 
+  margin-bottom: 8px;
   border-radius: 5px;
 }
-li:hover{
-    color: #FFFFFF;    
-    background-color: #2F96B4;
-    box-shadow: 4px 4px 24px 0px rgba(0,0,0,0.3);
+
+li:hover {
+  color: #FFFFFF;
+  background-color: #2F96B4;
+  box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.3);
 
 }
+
 .recent_replies ul,
 .recent_topics ul {
   margin-top: 0px;
@@ -62,8 +67,8 @@ li:hover{
 
 ul a {
   text-decoration: none;
-    color: #FFFFFF;
-    display:block;
+  color: #FFFFFF;
+  display: block;
   padding: 10px 10px;
 }
 
@@ -73,6 +78,7 @@ ul a {
   height: 16px;
   font-size: 12px;
 }
+
 .loginname {
   width: 100px;
   float: right;
@@ -89,18 +95,31 @@ ul a {
 .authersummay .topbar {
   margin-top: 0px;
 }
+
 .scoreStyle {
   padding: 0 10px 10px;
-  font-size:14px;
+  font-size: 14px;
 }
-.authorsummary img{
+
+.authorsummary img {
   width: 200px;
   margin: 40px;
 }
-.authorsummary img:hover{
-  box-shadow: 6px 6px 24px 0px rgba(0,0,0,0.3);
+
+.authorsummary img:hover {
+  box-shadow: 6px 6px 24px 0px rgba(0, 0, 0, 0.3);
 }
-.imgWrapper{
+
+.imgWrapper {
   text-align: center;
+}
+
+@media screen and (max-width: 979px) {
+  .autherinfo {
+    float: none;
+    position: absolute;
+    right: 3%;
+    bottom: -564px;
+  }
 }
 </style>

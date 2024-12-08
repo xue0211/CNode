@@ -25,6 +25,7 @@ export default new Router({
       path: '/user/:name',
       components: {
         main: PostList,
+        slidebar:Slider
       }
     },
     {
