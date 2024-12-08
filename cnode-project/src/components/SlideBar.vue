@@ -46,7 +46,7 @@
 
 <script>
 export default{
-    name: 'SideBar',
+    name: 'SlideBar',
     data(){
         return{
             userinfo:{}

@@ -5,8 +5,8 @@ import Login from '../components/Login'
 import PostList from '../components/PostList'
 import Article from '../components/Article'
 import UserInfo from '../components/UserInfo'
-import SideBar from '../components/SideBar'
-import Sider from '../components/Sider'
+import SlideBar from '../components/SlideBar'
+import Slider from '../components/Slider'
 
 Vue.use(Router)
 
@@ -17,7 +17,7 @@ export default new Router({
       path: '/',
       components: {
         main: PostList,
-        sidebar:Sider
+        SlideBar:Slider
       }
     },
     {
@@ -32,7 +32,7 @@ export default new Router({
       path: '/topic/:id&author=:name',
       components: {
         main: Article,
-        sidebar:SideBar
+        SlideBar:SlideBar
       }
     },
     {
