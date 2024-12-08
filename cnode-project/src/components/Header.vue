@@ -1,8 +1,12 @@
 <template>
     <div class="header">
-        <img src="../assets/cnodejs_light.svg" alt="">
+        <router-link :to='{ name: "user", params: { name: this.username } }'>
+            <img src="../assets/cnodejs_light.svg" alt="">
+        </router-link>
         <ul>
-            <li>首页</li>
+            <router-link :to='{ name: "user", params: { name: this.username } }'>
+                首页
+            </router-link>
             <li><a href="#">新手入门</a></li>
             <li><a href="#">API</a></li>
             <li><a href="#">关于</a></li>
@@ -12,7 +16,7 @@
                 </router-link>
             </li>
             <li v-if="isRegistered">
-                <router-link :to='{name:"Login"}'>登录</router-link>
+                <router-link :to='{ name: "Login" }'>登录</router-link>
             </li>
             <li v-if="userNameIsExit"><span>{{ this.username }}</span></li>
         </ul>
@@ -72,5 +76,21 @@ a {
 li span {
     color: #fff;
     font-size: 13px;
+}
+
+@media (max-width: 979px) {
+  .header {
+    height: 100px;
+  }
+
+  img {
+    margin-left: 20px;
+  }
+
+  ul {
+    margin-right: 0;
+    padding-left: 10px;
+    float: none;
+  }
 }
 </style>
