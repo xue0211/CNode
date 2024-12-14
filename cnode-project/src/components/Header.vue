@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <router-link :to='{ name: "user", params: { name: this.username } }'>
+            <router-link :to='{ name: "user", params: { name: this.username } }'>
             <img src="../assets/cnodejs_light.svg" alt="">
         </router-link>
         <ul>
