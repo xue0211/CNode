@@ -35,4 +35,11 @@ body{
   width:80%;
   margin: 0 auto;
 }
+
+@media screen and (max-width: 979px){
+  .main{
+    width:100%;
+    position: relative;
+  }
+}
 </style>

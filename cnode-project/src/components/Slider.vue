@@ -115,7 +115,7 @@ ul a {
 }
 
 @media screen and (max-width: 979px) {
-  .autherinfo {
+  .authorinfo {
     float: none;
     position: absolute;
     right: 3%;

@@ -248,65 +248,136 @@ a:hover {
     text-decoration: underline;
 }
 
+@media screen and (max-width: 979px){
+  .toobar span {
+    margin: 0 13px;
+  }
+  .PostList {
+    margin: 10px 10px 564px;
+  }
+  ul li:not(:first-child){
+    font-size: 14px;
+    padding-bottom: 18px;
+    position: relative;
+  }
+  .reply_count_padding{
+    padding: 0;
+    width: 56px;
+  }
+  .put_good,
+  .put_top,
+  .topiclist-tab{
+    margin-right: 5px;
+  }
+  li span{
+    line-height: 0
+  }
+  .topic_title{
+    max-width: 58%;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .last_reply{
+    position: absolute;
+    right: 12px; 
+    bottom: 12px;
+  }
+}
+
+.loading {
+  text-align: center;
+  padding-top: 300px;
+}
+.loader {
+  position: absolute;
+  top: 30%;
+  left: 25%;
+  margin-left: 10%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.dot {
+  width: 24px;
+  height: 24px;
+  background: #3ac;
+  border-radius: 100%;
+  display: inline-block;
+  animation: slide 1s infinite;
+}
+.dot:nth-child(1) {
+  animation-delay: 0.1s;
+  background: #32aacc;
+}
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+  background: #64aacc;
+}
+.dot:nth-child(3) {
+  animation-delay: 0.3s;
+  background: #96aacc;
+}
+.dot:nth-child(4) {
+  animation-delay: 0.4s;
+  background: #c8aacc;
+}
+.dot:nth-child(5) {
+  animation-delay: 0.5s;
+  background: #faaacc;
+}
 @-moz-keyframes slide {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.3;
-        transform: scale(2);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
-
 @-webkit-keyframes slide {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.3;
-        transform: scale(2);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
-
 @-o-keyframes slide {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.3;
-        transform: scale(2);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
-
 @keyframes slide {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.3;
-        transform: scale(2);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
+
 @media screen and (max-width: 979px){
   .loading {
     text-align: center;
@@ -320,4 +391,6 @@ a:hover {
     transform: translate3d(-50%, -50%, 0);
   }
 }
+
+
 </style>
