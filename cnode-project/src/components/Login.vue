@@ -35,7 +35,7 @@ export default {
             if (localStorage.getItem(this.username) === null) {
                 this.usernameIsRight = true
             } else if (localStorage.getItem(this.username) !== this.password) {
-                this.usernameIsRight = true
+                this.passwordIsRight = true
             } else if (localStorage.getItem(this.username) === this.password) {
                 this.usernameIsRight = false
                 this.$router.push({ name: 'user', params: { name: this.username } })
