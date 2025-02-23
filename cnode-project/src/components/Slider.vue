@@ -12,7 +12,7 @@
         <li><a href="https://github.com/xue0211/CNode" target="_blank">GitHub</a></li>
         <li><a href="https://www.zhihu.com/people/xia-ye-ban-liang-5?utm_source=article-pc-editor"
             target="_blank">Blog</a></li>
-        <li><a href="mailto:zhengtai1123@qq.com" target='_blank'>Email</a></li>
+        <li><a href="mailto:zhongxue066@gmail.com" target='_blank'>Email</a></li>
       </ul>
     </div>
   </div>
