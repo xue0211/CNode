@@ -69,7 +69,7 @@ export default {
                 .get("https://cnodejs.org/api/v1/topics", {
                     params: {
                         page: this.pageNumber,
-                        limit: 20,
+                        limit: 10,
                         tab: this.tab
                     }
                 })
